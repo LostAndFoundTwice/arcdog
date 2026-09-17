@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,800;1,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #07060A; color: #F3EFFA; font-family: Archivo, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F3EFFA; text-decoration: none; }
+  a:hover { color: #B57BFF; }
+  @keyframes arcdog-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes arcdog-smoke { from { transform: rotate(0deg) scale(1.1); } to { transform: rotate(360deg) scale(1.1); } }
+  @keyframes arcdog-smoke-rev { from { transform: rotate(360deg) scale(1.25); } to { transform: rotate(0deg) scale(1.25); } }
+</style>
+</helmet>
+<div style="width:100%; overflow-x:hidden; background:#07060A">
+
+  <div ref="{{ glowFar }}" style="position:fixed; top:0; left:0; width:420px; height:420px; margin:-210px 0 0 -210px; z-index:0; pointer-events:none; opacity:0; will-change:transform; background:radial-gradient(circle at 50% 50%, rgba(74,22,150,0.30) 0%, rgba(58,16,120,0.11) 40%, rgba(58,16,120,0) 72%); filter:blur(40px)">
+    <div style="position:absolute; inset:0; border-radius:50%; opacity:0.3; animation:arcdog-smoke-rev 46s linear infinite; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.013' numOctaves='4'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size:cover; -webkit-mask-image:radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 68%); mask-image:radial-gradient(circle at 50% 50%, rgba(0,0,0,0.9) 0%, transparent 68%)"></div>
+  </div>
+  <div ref="{{ glowNear }}" style="position:fixed; top:0; left:0; width:210px; height:210px; margin:-105px 0 0 -105px; z-index:0; pointer-events:none; opacity:0; will-change:transform; background:radial-gradient(circle at 50% 50%, rgba(104,38,205,0.34) 0%, rgba(74,22,150,0.16) 42%, rgba(74,22,150,0) 74%); filter:blur(22px)">
+    <div style="position:absolute; inset:0; border-radius:50%; opacity:0.32; animation:arcdog-smoke 28s linear infinite; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.026' numOctaves='4'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E&quot;); background-size:cover; -webkit-mask-image:radial-gradient(circle at 50% 50%, rgba(0,0,0,0.95) 0%, transparent 66%); mask-image:radial-gradient(circle at 50% 50%, rgba(0,0,0,0.95) 0%, transparent 66%)"></div>
+  </div>
+
+  <header style="position:fixed; z-index:40; top:14px; left:50%; transform:translateX(-50%); width:calc(100% - 24px); max-width:1200px; z-index:40; display:flex; align-items:center; gap:18px; flex-wrap:nowrap; padding:10px 12px 10px 18px; background:rgba(17,12,30,0.45); backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4); border:1px solid rgba(180,123,255,0.22); border-radius:999px; box-shadow:0 10px 40px rgba(0,0,0,0.45)">
+    <a href="#top" style="font-family:Archivo; font-weight:800; font-size:20px; letter-spacing:-0.02em; text-transform:uppercase">$ARCDOG</a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <nav style="display:flex; gap:20px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#A093BE">
+      <a href="#who" style="color:#A093BE">Who is Arcdog</a>
+      <a href="#buy" style="color:#A093BE">How to buy</a>
+      <a href="#community" style="color:#A093BE">Community</a>
+    </nav>
+    </sc-if>
+    <a href="#buy" style="margin-left:auto; flex:none; white-space:nowrap; padding:10px 16px; background:linear-gradient(175deg, rgba(178,118,255,0.52) 0%, rgba(110,38,225,0.46) 46%, rgba(72,20,160,0.5) 100%); backdrop-filter:blur(16px) saturate(1.7); -webkit-backdrop-filter:blur(16px) saturate(1.7); border:1px solid rgba(214,182,255,0.42); box-shadow:inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -10px 16px rgba(58,14,124,0.4), 0 8px 26px rgba(90,30,190,0.34); color:#FFFFFF; font-weight:800; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; border-radius:999px">Buy $ARCDOG</a>
+  </header>
+
+  <section id="top" style="position:relative; z-index:2; border-bottom:1px solid #241C38">
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <img src="images/banner-wide.jpeg" alt="ARCDOG in a purple hoodie with diamond chain and rings" style="display:block; width:100%; height:clamp(340px, 46vw, 620px); object-fit:cover; object-position:78% 50%">
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(7,6,10,0.96) 0%, rgba(7,6,10,0.86) 42%, rgba(7,6,10,0.15) 74%, rgba(7,6,10,0.05) 100%)"></div>
+    <div style="position:absolute; inset:0; display:flex; align-items:center; padding-top:96px">
+      <div style="max-width:1200px; width:100%; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; gap:20px">
+        <div style="display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#B57BFF">
+          <span style="width:8px; height:8px; border-radius:50%; background:#7A2BF5; display:inline-block"></span>
+          <span>Arc mainnet is live. So is the dog.</span>
+        </div>
+        <h1 style="margin:0; max-width:14ch; font-weight:800; font-size:clamp(38px, 5.4vw, 108px); line-height:0.86; letter-spacing:-0.045em; text-transform:uppercase; overflow-wrap:break-word; text-shadow:0 2px 40px rgba(7,6,10,0.8)">All eyes on <span style="color:#B57BFF">$ARCDOG</span></h1>
+        <p style="margin:0; max-width:30ch; font-size:clamp(16px, 1.5vw, 21px); line-height:1.45; color:#D8CFEC; text-wrap:pretty">Big dog on Arc.<br>Iced out. Hoodie up. Chain heavy.<br>The pack moves different.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px">
+          
+          <a href="#buy" style="padding: 15px 26px; background: linear-gradient(175deg, rgba(178,118,255,0.52) 0%, rgba(110,38,225,0.46) 46%, #1304249D); backdrop-filter: blur(16px) saturate(1.7); -webkit-backdrop-filter: blur(16px) saturate(1.7); border: 1px solid rgba(214,182,255,0.42); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -10px 16px rgba(58,14,124,0.4), 0 8px 26px rgba(90,30,190,0.34); color: #FFFFFF; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; opacity: 1; overflow: visible" target="_blank" rel="noopener noreferrer">Buy $ARCDOG</a><a href="#who" style="padding:15px 26px; background:linear-gradient(175deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 100%); backdrop-filter:blur(16px) saturate(1.5); -webkit-backdrop-filter:blur(16px) saturate(1.5); border:1px solid rgba(255,255,255,0.24); box-shadow:inset 0 1px 0 rgba(255,255,255,0.38), inset 0 -10px 16px rgba(0,0,0,0.22), 0 8px 26px rgba(0,0,0,0.3); font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; border-radius:999px">Who is he?</a>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ narrow }}">
+    <img src="images/banner-wide.jpeg" alt="ARCDOG in a purple hoodie with diamond chain and rings" style="display:block; width:100%; height:min(58vw, 300px); object-fit:cover; object-position:72% 40%">
+    <div style="position:relative; margin-top:-64px; padding:0 0 44px; background:linear-gradient(180deg, rgba(7,6,10,0) 0%, rgba(7,6,10,0.92) 46%, rgba(7,6,10,1) 100%)">
+      <div style="max-width:1200px; width:100%; margin:0 auto; padding:64px 20px 0; display:flex; flex-direction:column; gap:18px">
+        <div style="display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#B57BFF">
+          <span style="width:8px; height:8px; border-radius:50%; background:#7A2BF5; display:inline-block"></span>
+          <span>Arc mainnet is live. So is the dog.</span>
+        </div>
+        <h1 style="margin:0; max-width:12ch; font-weight:800; font-size:clamp(38px, 5.4vw, 108px); line-height:0.86; letter-spacing:-0.045em; text-transform:uppercase; overflow-wrap:break-word; text-shadow:0 2px 40px rgba(7,6,10,0.8)">All eyes on <span style="color:#B57BFF">$ARCDOG</span></h1>
+        <p style="margin:0; max-width:30ch; font-size:clamp(16px, 1.5vw, 21px); line-height:1.45; color:#D8CFEC; text-wrap:pretty">Big dog on Arc.<br>Iced out. Hoodie up. Chain heavy.<br>The pack moves different.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px">
+          
+          <a href="#buy" style="padding: 15px 26px; background: linear-gradient(175deg, rgba(178,118,255,0.52) 0%, rgba(110,38,225,0.46) 46%, #1304249D); backdrop-filter: blur(16px) saturate(1.7); -webkit-backdrop-filter: blur(16px) saturate(1.7); border: 1px solid rgba(214,182,255,0.42); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -10px 16px rgba(58,14,124,0.4), 0 8px 26px rgba(90,30,190,0.34); color: #FFFFFF; font-weight: 800; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; opacity: 1; overflow: visible" target="_blank" rel="noopener noreferrer">Buy $ARCDOG</a><a href="#who" style="padding:15px 26px; background:linear-gradient(175deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 100%); backdrop-filter:blur(16px) saturate(1.5); -webkit-backdrop-filter:blur(16px) saturate(1.5); border:1px solid rgba(255,255,255,0.24); box-shadow:inset 0 1px 0 rgba(255,255,255,0.38), inset 0 -10px 16px rgba(0,0,0,0.22), 0 8px 26px rgba(0,0,0,0.3); font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; border-radius:999px">Who is he?</a>
+        </div>
+
+    </div>
+    </sc-if>
+  </section>
+
+  <div style="position:relative; z-index:2; border-top:1px solid rgba(214,182,255,0.28); border-bottom:1px solid rgba(214,182,255,0.28); background:linear-gradient(175deg, rgba(178,118,255,0.4) 0%, rgba(110,38,225,0.34) 50%, rgba(72,20,160,0.38) 100%); backdrop-filter:blur(16px) saturate(1.7); -webkit-backdrop-filter:blur(16px) saturate(1.7); box-shadow:inset 0 1px 0 rgba(255,255,255,0.32), inset 0 -12px 20px rgba(58,14,124,0.3); overflow:hidden">
+    <div style="display:flex; width:max-content; animation:arcdog-marquee 26s linear infinite">
+      <div style="display:flex; gap:28px; padding:13px 14px; font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#FFFFFF; white-space:nowrap">
+        <span>Iced out</span><span>◆</span><span>hoodie up</span><span>◆</span><span>chain heavy</span><span>◆</span><span>the pack moves different</span><span>◆</span><span>all eyes on $ARCDOG</span><span>◆</span><span>Iced out</span><span>◆</span><span>hoodie up</span><span>◆</span><span>chain heavy</span><span>◆</span><span>the pack moves different</span><span>◆</span><span>all eyes on $ARCDOG</span><span>◆</span>
+      </div>
+      <div style="display:flex; gap:28px; padding:13px 14px; font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#FFFFFF; white-space:nowrap">
+        <span>Iced out</span><span>◆</span><span>hoodie up</span><span>◆</span><span>chain heavy</span><span>◆</span><span>the pack moves different</span><span>◆</span><span>all eyes on $ARCDOG</span><span>◆</span><span>Iced out</span><span>◆</span><span>hoodie up</span><span>◆</span><span>chain heavy</span><span>◆</span><span>the pack moves different</span><span>◆</span><span>all eyes on $ARCDOG</span><span>◆</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="who" style="position:relative; z-index:2; background:radial-gradient(120% 90% at 15% 0%, rgba(26,15,49,0.85) 0%, rgba(7,6,10,0.8) 62%)">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px, 10vw, 88px) clamp(18px, 5vw, 24px); display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(32px, 5vw, 52px); align-items:start">
+      <div style="min-width:0">
+        <h2 style="margin:0 0 30px; font-weight:800; font-size:clamp(32px, 4.4vw, 62px); line-height:0.94; letter-spacing:-0.03em; text-transform:uppercase; overflow-wrap:break-word">Who is Arcdog?</h2>
+        <div style="display:flex; flex-direction:column; gap:22px; font-size:19px; line-height:1.55; color:#D8CFEC; text-wrap:pretty">
+          <p style="margin:0">Nobody saw him arrive.<br>One block the chain was empty. The next, he was just there.<br>Hoodie up. Glasses on. Iced out before anyone knew his name.</p>
+          <p style="margin:0">He doesn't talk. He doesn't explain.<br>Some say he was here before Arc.<br>Some say he built the chain around his neck.</p>
+          <p style="margin:0; padding-top:24px; border-top:1px solid #241C38; font-weight:800; font-size:clamp(20px, 2.2vw, 28px); line-height:1.3; letter-spacing:-0.02em; color:#F3EFFA">Nobody knows who he is.<br><span style="color:#B57BFF">Everybody knows who he runs with.</span></p>
+        </div>
+      </div>
+      <div style="min-width:0; display:flex; flex-direction:column; gap:16px">
+        <img src="images/dog-closeup.jpeg" alt="ARCDOG iced out with diamond bracelets, watch and an ARCDOG chest piece" style="display:block; width:100%; border:1px solid #2E2350; border-radius:2px">
+        <img src="images/iced-out.jpeg" alt="Diamond fist and an iced-out dog pendant" style="display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border:1px solid #2E2350; border-radius:2px">
+        <p style="margin:0; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#A093BE">Proof of ice</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy" style="position:relative; z-index:2; border-top:1px solid #241C38; background:rgba(12,9,22,0.72)">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px, 10vw, 88px) clamp(18px, 5vw, 24px)">
+      <p style="margin:0 0 14px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#B57BFF">Wallet → Arc → CA → Swap</p>
+      <h2 style="margin:0 0 20px; font-weight:800; font-size:clamp(32px, 4.4vw, 62px); line-height:0.94; letter-spacing:-0.03em; text-transform:uppercase">How to buy.</h2>
+      <p style="margin:0 0 40px; max-width:52ch; font-size:18px; line-height:1.55; color:#A093BE">Four steps. The only one people get wrong is the third: paste the full contract address, never search by ticker.</p>
+
+      <div style="padding:24px; margin-bottom:36px; background:#150E28; border:1px solid #3A2A63; border-radius:2px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
+        <div style="min-width:0">
+          <p style="margin:0 0 10px; font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#A093BE">Official contract address · Arc</p>
+          <p style="margin:0; font-family:'IBM Plex Mono', monospace; font-size:clamp(11px, 1.6vw, 16px); line-height:1.5; word-break:break-all">{{ contract }}</p>
+        </div>
+        <button type="button" onClick="{{ copyCA }}" style="flex:none; padding:13px 22px; background:linear-gradient(175deg, rgba(178,118,255,0.52) 0%, rgba(110,38,225,0.46) 46%, rgba(72,20,160,0.5) 100%); backdrop-filter:blur(16px) saturate(1.7); -webkit-backdrop-filter:blur(16px) saturate(1.7); border:1px solid rgba(214,182,255,0.42); box-shadow:inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -10px 16px rgba(58,14,124,0.4), 0 8px 26px rgba(90,30,190,0.34); color:#FFFFFF; border-radius:999px; font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer">{{ copyLabel }}</button>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:1px; background:#241C38; border:1px solid #241C38; overflow:hidden; border-radius:2px">
+        <div style="padding:24px 20px 28px; background:#07060A; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#B57BFF">01</span>
+          <h3 style="margin:0; font-weight:800; font-size:21px; letter-spacing:-0.01em">Load a wallet</h3>
+          <p style="margin:0; font-size:16px; line-height:1.55; color:#A093BE">Use a self-custody wallet that supports Arc. Keep USDC on hand — that is what pays gas.</p>
+        </div>
+        <div style="padding:24px 20px 28px; background:#07060A; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#B57BFF">02</span>
+          <h3 style="margin:0; font-weight:800; font-size:21px; letter-spacing:-0.01em">Get on Arc</h3>
+          <p style="margin:0; font-size:16px; line-height:1.55; color:#A093BE">Add the network from an official source, then bridge over a verified route. Nothing from a DM.</p>
+        </div>
+        <div style="padding:24px 20px 28px; background:#07060A; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#B57BFF">03</span>
+          <h3 style="margin:0; font-weight:800; font-size:21px; letter-spacing:-0.01em">Paste the real CA</h3>
+          <p style="margin:0; font-size:16px; line-height:1.55; color:#A093BE">Open the DEX and paste the address above. Searching by ticker is how people get clipped.</p>
+        </div>
+        <div style="padding:24px 20px 28px; background:#07060A; display:flex; flex-direction:column; gap:12px">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#B57BFF">04</span>
+          <h3 style="margin:0; font-weight:800; font-size:21px; letter-spacing:-0.01em">Send it</h3>
+          <p style="margin:0; font-size:16px; line-height:1.55; color:#A093BE">Check network, address, amount, fees. Confirm only when every line matches.</p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:28px">
+        <a href="#" style="padding:14px 24px; background:linear-gradient(175deg, rgba(178,118,255,0.52) 0%, rgba(110,38,225,0.46) 46%, rgba(72,20,160,0.5) 100%); backdrop-filter:blur(16px) saturate(1.7); -webkit-backdrop-filter:blur(16px) saturate(1.7); border:1px solid rgba(214,182,255,0.42); box-shadow:inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -10px 16px rgba(58,14,124,0.4), 0 8px 26px rgba(90,30,190,0.34); color:#FFFFFF; font-weight:800; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; border-radius:999px">Swap on DEX ↗</a>
+        <a href="#" style="padding:14px 24px; background:linear-gradient(175deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 100%); backdrop-filter:blur(16px) saturate(1.5); -webkit-backdrop-filter:blur(16px) saturate(1.5); border:1px solid rgba(255,255,255,0.24); box-shadow:inset 0 1px 0 rgba(255,255,255,0.38), inset 0 -10px 16px rgba(0,0,0,0.22), 0 8px 26px rgba(0,0,0,0.3); font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; border-radius:999px">Chart ↗</a>
+      </div>
+      <p style="margin:24px 0 0; max-width:60ch; font-size:15px; line-height:1.6; color:#8C80A8">Security rule: never trust a ticker alone. Match the network and the full contract address before you connect a wallet.</p>
+    </div>
+  </section>
+
+  <section id="community" style="position:relative; z-index:2; border-top:1px solid #241C38; background:transparent">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px, 10vw, 88px) clamp(18px, 5vw, 24px) 40px">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:clamp(32px, 5vw, 52px); align-items:center; margin-bottom:48px">
+        <div style="min-width:0">
+          <p style="margin:0 0 14px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:#B57BFF">Where the pack moves</p>
+          <h2 style="margin:0 0 20px; font-weight:800; font-size:clamp(32px, 4.4vw, 62px); line-height:0.94; letter-spacing:-0.03em; text-transform:uppercase">Run with us.</h2>
+          <p style="margin:0; max-width:40ch; font-size:18px; line-height:1.55; color:#A093BE">Charts checked. Grass touched, briefly. Open door, no sleep schedule — ask before you buy, not after.</p>
+        </div>
+        <img src="images/touch-grass.jpeg" alt="ARCDOG lying in the grass with a laptop and an ARCDOG to-do list" style="display:block; width:100%; min-width:0; border:1px solid #2E2350; border-radius:2px">
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px">
+        <a href="#" style="display:flex; flex-direction:column; gap:10px; padding:26px 24px; border:1px solid #2E2350; border-radius:2px; background:#0F0B1C" style-hover="border-color:#7A2BF5; background:#150E28">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#A093BE">Follow</span>
+          <span style="font-weight:800; font-size:22px; letter-spacing:-0.01em">X / Twitter ↗</span>
+          <span style="font-size:15px; line-height:1.5; color:#A093BE">Announcements, raids, and whatever the dog is doing today.</span>
+        </a>
+        <a href="#" style="display:flex; flex-direction:column; gap:10px; padding:26px 24px; border:1px solid #2E2350; border-radius:2px; background:#0F0B1C" style-hover="border-color:#7A2BF5; background:#150E28">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#A093BE">Group chat</span>
+          <span style="font-weight:800; font-size:22px; letter-spacing:-0.01em">Telegram ↗</span>
+          <span style="font-size:15px; line-height:1.5; color:#A093BE">The pack. Loud, awake, and permanently online.</span>
+        </a>
+        <a href="#" style="display:flex; flex-direction:column; gap:10px; padding:26px 24px; border:1px solid #2E2350; border-radius:2px; background:#0F0B1C" style-hover="border-color:#7A2BF5; background:#150E28">
+          <span style="font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#A093BE">Charts</span>
+          <span style="font-weight:800; font-size:22px; letter-spacing:-0.01em">DEX Screener ↗</span>
+          <span style="font-size:15px; line-height:1.5; color:#A093BE">Live pair, liquidity, and holders on Arc.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position:relative; z-index:2; border-top:1px solid #241C38; margin-top:48px; background:transparent">
+    <div style="max-width:1200px; margin:0 auto; padding:44px clamp(18px, 5vw, 24px) 56px; display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:flex-end">
+      <div>
+        <p style="margin:0 0 10px; font-weight:800; font-size:24px; letter-spacing:-0.02em; text-transform:uppercase">$ARCDOG</p>
+        <p style="margin:0; font-family:'IBM Plex Mono', monospace; font-size:13px; line-height:1.7; color:#A093BE">All eyes on $ARCDOG.<br>Not financial advice. Not affiliated with Circle or Arc.</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:18px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase">
+        <a href="#who" style="color:#A093BE">Who is Arcdog</a>
+        <a href="#buy" style="color:#A093BE">How to buy</a>
+        <a href="#community" style="color:#A093BE">Community</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;contract&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0x0000000000000000000000000000000000000000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Token&quot;}}">
+class Component extends DCLogic {
+  state = { copied: false, narrow: typeof window !== "undefined" && window.innerWidth < 760 };
+  glowFar = React.createRef();
+  glowNear = React.createRef();
+
+  componentDidMount() {
+    this.pt = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    this.far = { x: this.pt.x, y: this.pt.y };
+    this.near = { x: this.pt.x, y: this.pt.y };
+    this.alive = true;
+    this.paint = () => {
+      const f = this.glowFar.current, n = this.glowNear.current;
+      if (f) f.style.transform = "translate3d(" + this.far.x + "px," + this.far.y + "px,0)";
+      if (n) n.style.transform = "translate3d(" + this.near.x + "px," + this.near.y + "px,0)";
+    };
+    this.tick = () => {
+      if (!this.alive) return;
+      this.far.x += (this.pt.x - this.far.x) * 0.055;
+      this.far.y += (this.pt.y - this.far.y) * 0.055;
+      this.near.x += (this.pt.x - this.near.x) * 0.16;
+      this.near.y += (this.pt.y - this.near.y) * 0.16;
+      this.paint();
+      this.raf = requestAnimationFrame(this.tick);
+    };
+    this.onMove = (e) => {
+      this.pt.x = e.clientX;
+      this.pt.y = e.clientY;
+      if (!this.awake) {
+        this.awake = true;
+        this.far = { x: this.pt.x, y: this.pt.y };
+        this.near = { x: this.pt.x, y: this.pt.y };
+        if (this.glowFar.current) this.glowFar.current.style.opacity = "1";
+        if (this.glowNear.current) this.glowNear.current.style.opacity = "1";
+      }
+      this.paint();
+      if (!this.raf) { this.alive = true; this.raf = requestAnimationFrame(this.tick); }
+    };
+    window.addEventListener("pointermove", this.onMove, { passive: true });
+    this.onResize = () => {
+      const narrow = window.innerWidth < 760;
+      if (narrow !== this.state.narrow) this.setState({ narrow });
+    };
+    window.addEventListener("resize", this.onResize, { passive: true });
+    this.onResize();
+    this.paint();
+    this.raf = requestAnimationFrame(this.tick);
+  }
+
+  componentWillUnmount() {
+    this.alive = false;
+    window.removeEventListener("pointermove", this.onMove);
+    window.removeEventListener("resize", this.onResize);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    this.raf = null;
+  }
+
+  renderVals() {
+    const contract = this.props.contract ?? "0x0000000000000000000000000000000000000000";
+    return {
+      narrow: this.state.narrow,
+      wide: !this.state.narrow,
+      glowFar: this.glowFar,
+      glowNear: this.glowNear,
+      contract,
+      copyLabel: this.state.copied ? "Copied" : "Copy",
+      copyCA: () => {
+        try { navigator.clipboard.writeText(contract); } catch (e) {}
+        this.setState({ copied: true });
+        setTimeout(() => this.setState({ copied: false }), 1600);
+      }
+    };
+  }
+}
+
+</script>
+</body>
+</html>
